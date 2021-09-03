@@ -1,191 +1,32 @@
-<!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Notes</title>
-                <meta name="robots" content="noindex" />
-                
-
-        <!-- Custom HTML head -->
-        
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
-        
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
-        
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-            </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('light')
-            html.classList.add(theme);
-            html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="Chinese.html"><strong aria-hidden="true">1.</strong> Chinese</a></li></ol>            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                                            </div>
-
-                    <h1 class="menu-title">Notes</h1>
-
-                    <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-                                                                        
-                    </div>
-                </div>
-
-                                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1 id="chinese"><a class="header" href="#chinese">Chinese</a></h1>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                        
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Protected Page</title>
+    <script type="module">var e,t;var n={chars:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",bits:6},r=function(e,t){return function(e,t,n){var r;if(void 0===n&&(n={}),!t.codes){t.codes={};for(var o=0;o<t.chars.length;++o)t.codes[t.chars[o]]=o}if(!n.loose&&e.length*t.bits&7)throw new SyntaxError("Invalid padding");for(var i=e.length;"="===e[i-1];)if(--i,!(n.loose||(e.length-i)*t.bits&7))throw new SyntaxError("Invalid padding");for(var s=new(null!=(r=n.out)?r:Uint8Array)(i*t.bits/8|0),a=0,c=0,d=0,l=0;l<i;++l){var u=t.codes[e[l]];if(void 0===u)throw new SyntaxError("Invalid character "+e[l]);c=c<<t.bits|u,(a+=t.bits)>=8&&(a-=8,s[d++]=255&c>>a)}if(a>=t.bits||255&c<<8-a)throw new SyntaxError("Unexpected end of data");return s}(e,n,t)};const o=document.querySelector.bind(document),[i,s,a,c,d]=["input","header","#msg","form","#load"].map(o);let l,u,f;document.addEventListener("DOMContentLoaded",(async()=>{const e=o("pre").innerText;if(!e)return i.disabled=!0,void p("No encrypted payload.");const t=r(e);if(l=t.slice(0,32),u=t.slice(32,48),f=t.slice(48),location.hash){const e=new URL(window.location.href);i.value=e.hash.slice(1),e.hash="",history.replaceState(null,"",e.toString())}sessionStorage.k||i.value?await m():(h(d),y(c),s.classList.replace("hidden","flex"),i.focus())}));const w=(null==(e=window.crypto)?void 0:e.subtle)||(null==(t=window.crypto)?void 0:t.webkitSubtle);function y(e){e.classList.remove("hidden")}function h(e){e.classList.add("hidden")}function p(e){a.innerText=e,s.classList.add("text-red-600")}async function m(){d.lastElementChild.innerText="Decrypting...",h(s),h(c),y(d),await async function(e){return new Promise((t=>setTimeout(t,e)))}(60);try{const e=await async function({salt:e,iv:t,ciphertext:n},r){const o=new TextDecoder,i=sessionStorage.k?await async function(e){return w.importKey("jwk",e,"AES-GCM",!0,["decrypt"])}(JSON.parse(sessionStorage.k)):await async function(e,t){const n=new TextEncoder,r=await w.importKey("raw",n.encode(t),"PBKDF2",!1,["deriveKey"]);return await w.deriveKey({name:"PBKDF2",salt:e,iterations:2e6,hash:"SHA-256"},r,{name:"AES-GCM",length:256},!0,["decrypt"])}(e,r),s=new Uint8Array(await w.decrypt({name:"AES-GCM",iv:t},i,n));if(!s)throw"Malformed data";return sessionStorage.k=JSON.stringify(await w.exportKey("jwk",i)),o.decode(s)}({salt:l,iv:u,ciphertext:f},i.value);document.write(e),document.close()}catch(e){h(d),y(c),s.classList.replace("hidden","flex"),sessionStorage.k?sessionStorage.removeItem("k"):p("Wrong password."),i.value="",i.focus()}}w||(p("Please use a modern browser."),i.disabled=!0),c.addEventListener("submit",(async e=>{e.preventDefault(),await m()}));</script>
+    <style>*,:before,:after{box-sizing:border-box}html{-moz-tab-size:4;-o-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"}hr{height:0;color:inherit}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}button{background-color:transparent;background-image:none}fieldset{margin:0;padding:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}body{font-family:inherit;line-height:inherit}*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}hr{border-top-width:1px}img{border-style:solid}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#a8a29e}input:-ms-input-placeholder,textarea:-ms-input-placeholder{opacity:1;color:#a8a29e}input::placeholder,textarea::placeholder{opacity:1;color:#a8a29e}button,[role=button]{cursor:pointer}:-moz-focusring{outline:auto}table{border-collapse:collapse}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}button,input,optgroup,select,textarea{padding:0;line-height:inherit;color:inherit}pre,code,kbd,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:before,:after{--tw-border-opacity: 1;border-color:rgba(231,229,228,var(--tw-border-opacity))}.fixed{position:fixed}.bottom-0{bottom:0px}.right-0{right:0px}.mx-auto{margin-left:auto;margin-right:auto}.mr-4{margin-right:1rem}.mb-4{margin-bottom:1rem}.mt-4{margin-top:1rem}.flex{display:flex}.table{display:table}.hidden{display:none}.h-screen{height:100vh}.h-\[10\.625rem\]{height:10.625rem}.h-full{height:100%}.h-6{height:1.5rem}.w-full{width:100%}.w-6{width:1.5rem}.max-w-sm{max-width:24rem}.cursor-pointer{cursor:pointer}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.gap-2{gap:.5rem}.rounded-sm{border-radius:.125rem}.border{border-width:1px}.border-gray-700{--tw-border-opacity: 1;border-color:rgba(68,64,60,var(--tw-border-opacity))}.bg-black{--tw-bg-opacity: 1;background-color:rgba(0,0,0,var(--tw-bg-opacity))}.bg-gray-800{--tw-bg-opacity: 1;background-color:rgba(41,37,36,var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity: 1;background-color:rgba(255,255,255,var(--tw-bg-opacity))}.p-4{padding:1rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.pt-16{padding-top:4rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.font-light{font-weight:300}.font-extralight{font-weight:200}.font-semibold{font-weight:600}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-white{--tw-text-opacity: 1;color:rgba(255,255,255,var(--tw-text-opacity))}.text-black{--tw-text-opacity: 1;color:rgba(0,0,0,var(--tw-text-opacity))}.text-red-600{--tw-text-opacity: 1;color:rgba(220,38,38,var(--tw-text-opacity))}.loading{pointer-events:none;width:2em;height:2em;border:.15em solid transparent;border-color:#fff;border-right-width:.1em;border-radius:50%;-webkit-animation:spin .5s linear infinite;animation:spin .5s linear infinite}@-webkit-keyframes spin{to{transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width: 475px){.xs\:pt-40{padding-top:10rem}.xs\:text-base{font-size:1rem;line-height:1.5rem}}</style>
+</head>
+<body>
+    <main class="bg-black w-full h-screen items-start tracking-wide p-4 pt-16 xs:pt-40 font-light text-white">
+        <div class="max-w-sm w-full bg-gray-800 p-4 rounded-sm mx-auto h-[10.625rem]">
+            <div id="load" class="flex items-center justify-center h-full">
+                <p class="loading w-6 h-6 mr-4"></p><p class="text-lg">Loading...</p>
             </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                            </nav>
-
+            <header class="hidden gap-2 mb-4 items-center">
+                <svg id="locked" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                </svg>
+                <p id="msg" class="text-sm xs:text-base">This page is password protected.</p>
+            </header>
+            <form class="hidden">
+                <input type="password" id="pwd" name="pwd" aria-label="Password" autofocus class="font-extralight flex w-full py-2 px-4 tracking-wider rounded-sm focus:outline-none border border-gray-700 bg-gray-800" />
+                <input type="submit" value="Submit" class="text-black w-full py-2 mt-4 cursor-pointer bg-white rounded-sm">
+            </form>
         </div>
-
-        
-        
-        
-                <script type="text/javascript">
-            window.playground_copyable = true;
-        </script>
-        
-        
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
-
-        <!-- Custom JS scripts -->
-        
-                        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-                
-    </body>
+        <a href="https://github.com/Greenheart/pagecrypt" class="fixed bottom-0 right-0 p-4 text-sm xs:text-base">Created with <span class="font-semibold">PageCrypt</span></a>
+    </main>
+    <pre class="hidden">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</pre>
+</body>
 </html>
